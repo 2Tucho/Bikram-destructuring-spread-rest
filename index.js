@@ -56,20 +56,21 @@ const { today: maximaHoy, tomorrow: maximaManana } = HIGH_TEMPERATURES;
 /*9*/
 //necesito un buvle que me recorra cada argumento de la función y me meta los valores y otro que determine si alguno de esos valores está ya en el array nuevo, si lo est;a entonces que no lo meta
 function onlyUniques(...rest) {
-    let result = []
+    let result = [];
     for (let i = 0; i < rest.length; i++) {
         if (result.includes(rest[i]) == false) {
             result.push(rest[i])
-        }
+        };
     }
     return result
 }
 
-/*10*/function combineAllArrays(a, ...rest) {
-  for (let i = 0; i < rest.length; i++) {
-      a.push(rest[i])
-  }
-  return arraysCombined
+/*10*/
+//.reduce para mergear todos los arrays en 1 solo. Que el acc sea el inicial, el vacío, y el current value el del ...rest
+function combineAllArrays(x,y,...z) {
+    let array3 = x.concat(y);
+    let arrayFinal = array3.concat(...z)
+    return arrayFinal
 }
 
 /*11*/
